@@ -1,0 +1,22 @@
+<div style="margin-bottom: 20px;">
+    <button type="button" class="btn-primary btn btn-lg" (click)="startRace()">
+        {{ raceStarted ? 'Race Started..' : 'Start Race'}}
+    </button>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Start Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Finish Time</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="athletesToDisplay.length > 0">
+        <tr *ngFor="let athlete of athletesToDisplay">
+            <td scope="row">{{ athlete?.startLine }}</td>
+            <td>{{ athlete?.fullName }}</td>
+            <td>{{ (athlete?.finishTime || 'NA') | time }}</td>
+        </tr>
+    </tbody>
+</table>
