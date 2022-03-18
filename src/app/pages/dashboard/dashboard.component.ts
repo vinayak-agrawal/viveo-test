@@ -37,14 +37,14 @@ export class DashboardComponent implements OnInit {
           if (athlete.entryTime * 1000 === this.time) {
             let _athlete = {...athlete};
             _athlete.finishTime = null;
-            this.athletesToDisplay.unshift(_athlete);
+            this.athletesToDisplay.push(_athlete);
           }
 
           if (athlete.finishTime * 1000 === this.time) {
             // remove athelete from toDisplay and also from the main details
             const indexToDel = this.athletesToDisplay.findIndex(ath => ath.athleteId === athlete.athleteId);
             this.athletesToDisplay.splice(indexToDel, 1);
-            this.athletesToDisplay.unshift(athlete);
+            this.athletesToDisplay.push(athlete);
           }
         });
 
